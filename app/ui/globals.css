@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.typing-cursor::after {
+  content: "|";
+  animation: smooth-blink 1s infinite ease-in-out; /* Smoother blinking */
+}
+
+@keyframes smooth-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3; /* Adjusted to create a smooth fade */
+  }
+}

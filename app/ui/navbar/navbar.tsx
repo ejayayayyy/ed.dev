@@ -1,19 +1,32 @@
 'use client'
 
-import Link from "next/link"
-import Navlinks from './navlinks'
-import Image from "next/image"
-import { useState } from "react"
+import Link from "next/link";
+import Navlinks from './navlinks';
+import Image from "next/image";
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1
+        }
+    }
+}
 
 export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <nav className="top-0 absolute w-full bg-white">
+        <nav className="absolute top-0 w-full z-50">
             <div className="container mx-auto p-6 flex items-center justify-between w-full max-w-7xl">
                 {/* Logo */}
-                <div className="flex items-center">
-                    <Link href="/" className="flex items-center text-center gap-2">
+                <motion.div className="flex items-center" initial="hidden"
+                    animate="visible"
+                    variants={containerVariants}>
+                    <Link href="/" className="flex items-center text-center gap-4">
                         <Image
                             src='/eddev.png'
                             width={40}
@@ -22,8 +35,9 @@ export default function Navbar() {
                         />
                         <p className="font-bold text-green-500 text-2xl">ed.dev</p>
                     </Link>
-                </div>
+                </motion.div>
 
+                {/* Mobile Menu Toggle Button */}
                 <button
                     className="md:hidden text-green-500"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -34,18 +48,21 @@ export default function Navbar() {
                     </svg>
                 </button>
 
+                {/* Mobile Menu Overlay */}
                 {isMenuOpen && (
                     <div
-                        className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-10 md:hidden"
-                        onClick={() => setIsMenuOpen(false)} // Clicking the overlay closes the menu
+                        className="fixed inset-0 bg-black bg-opacity-50 z-10 md:hidden"
+                        onClick={() => setIsMenuOpen(false)}
                     />
                 )}
 
+                {/* Menu Container */}
                 <div
-                    className={`fixed top-0 left-0 h-full w-72 bg-gray-50 transform transition-transform duration-300 z-20 md:relative md:flex md:items-center md:bg-transparent md:translate-x-0 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
-                        } md:w-auto`}
+                    className={`fixed top-0 left-0 h-full w-72 md:w-auto place-items-center bg-gray-50 dark:bg-gray-900 transform transition-transform duration-300 ease-in-out z-20 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                        } md:relative md:flex md:items-center md:bg-transparent md:translate-x-0`}
                 >
                     <div className="container mx-auto flex flex-col gap-6 md:flex-row md:gap-8 p-6 md:p-0">
+                        {/* Close Button for Mobile Menu */}
                         <button
                             className="self-end text-green-500 md:hidden"
                             onClick={() => setIsMenuOpen(false)}
@@ -62,10 +79,12 @@ export default function Navbar() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                             </svg>
                         </button>
+                        {/* Navigation Links */}
                         <Navlinks setIsMenuOpen={setIsMenuOpen} />
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav >
     );
 }
+

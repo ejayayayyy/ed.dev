@@ -25,3 +25,52 @@ html {
     opacity: 0.3; /* Adjusted to create a smooth fade */
   }
 }
+
+
+#imagePreview {
+  cursor: grab;
+}
+
+#imagePreview:active {
+  cursor: grabbing;
+}
+
+.sphere {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.7;
+  transition: all 5s ease-in-out;
+  animation: float 30s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(5%, -5%);
+  }
+  50% {
+    transform: translate(-3%, 7%);
+  }
+  75% {
+    transform: translate(-8%, -2%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+
+/* Add different animation durations for variety */
+.sphere:nth-child(2) {
+  animation-duration: 40s;
+}
+
+.sphere:nth-child(3) {
+  animation-duration: 50s;
+}
+
+
+

@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion'; // Import motion from framer-motion
 
 export default function Home() {
   const [text, setText] = useState('');
@@ -23,60 +24,109 @@ export default function Home() {
     return () => clearInterval(typingInterval); // Cleanup
   }, []);
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        duration: 0.5, 
+        when: "beforeChildren",
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { 
+      y: 0, 
+      opacity: 1,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <div className="container w-full max-w-7xl mx-auto p-6 place-content-center min-h-screen flex flex-col bg-red-00">
-      <div className="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-20 xl:gap-28">
-        {/* left */}
-        <div className="flex flex-col gap-12 flex-shrink-0 bg--500">
-          <div className="flex flex-col gap-4 text-center lg:text-start">
-            <p className="text-xl sm:text-2xl font-medium text-gray-500 animate_animated animate_slideInDown">Hello, I'm</p>
+    <motion.div 
+      className="relative min-h-screen w-full overflow-hidden"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
+      <div className="container w-full max-w-7xl mx-auto p-6 place-content-center min-h-screen flex flex-col">
+        <div className="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-20 xl:gap-28">
+          {/* left */}
+          <motion.div className="flex flex-col gap-12 flex-shrink-0" variants={itemVariants}>
+            <div className="flex flex-col gap-4 text-center lg:text-start">
+              <motion.p 
+                className="text-xl sm:text-2xl font-medium text-gray-500 dark:text-gray-400"
+                variants={itemVariants}
+              >
+                Hello, I'm
+              </motion.p>
 
-            <div className="flex flex-col gap-1">
-              <p className="text-4xl sm:text-5xl xl:text-6xl font-bold text-gray-900">Edward Gatbonton</p>
-              <p className="text-xl sm:text-2xl text-green-500 font-bold typing-cursor transition-transform duration-150 ease-in-out">{text}</p>
+              <div className="flex flex-col gap-1">
+                <motion.p 
+                  className="text-4xl sm:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white"
+                  variants={itemVariants}
+                >
+                  Edward Gatbonton
+                </motion.p>
+                <motion.p 
+                  className="text-xl sm:text-2xl text-green-500 font-bold typing-cursor transition-transform duration-150 ease-in-out"
+                  variants={itemVariants}
+                >
+                  {text}
+                </motion.p>
+              </div>
             </div>
-          </div>
-          <div className="flex items-center justify-center lg:justify-start">
-            <button className="px-6 py-2 bg-green-500 text-white rounded-full transition-colors duration-150 hover:bg-green-600">Download CV</button>
-          </div>
-        </div>
+            <motion.div 
+              className="flex items-center justify-center lg:justify-start"
+              variants={itemVariants}
+            >
+              <button className="px-6 py-2 bg-green-500 text-white rounded-full transition-colors duration-150 hover:bg-green-600">
+                Download CV
+              </button>
+            </motion.div>
+          </motion.div>
 
-        {/* right (image here) */}
-        <div className=" w-full flex items-center justify-center bg--500">
-          <Image
-            src='/image_1.png'
-            alt="Image 1"
-            height={400}
-            width={400}
-            className=" block sm:hidden"
+          {/* right (image here) */}
+          <motion.div 
+            className="w-full flex items-center justify-center"
+            variants={itemVariants}
           >
-          </Image>
-          <Image
-            src='/image_1.png'
-            alt="Image 1"
-            height={450}
-            width={450}
-            className=" hidden sm:block lg:hidden"
-          >
-          </Image>
-          <Image
-            src='/image_1.png'
-            alt="Image 1"
-            height={450}
-            width={450}
-            className=" hidden lg:block xl:hidden"
-          >
-          </Image>
-          <Image
-            src='/image_1.png'
-            alt="Image 1"
-            height={760}
-            width={1000}
-            className=" hidden xl:block"
-          >
-          </Image>
+            <Image
+              src='/image_1.png'
+              alt="Image 1"
+              height={400}
+              width={400}
+              className="block sm:hidden"
+            />
+            <Image
+              src='/image_1.png'
+              alt="Image 1"
+              height={450}
+              width={450}
+              className="hidden sm:block lg:hidden"
+            />
+            <Image
+              src='/image_1.png'
+              alt="Image 1"
+              height={450}
+              width={450}
+              className="hidden lg:block xl:hidden"
+            />
+            <Image
+              src='/image_1.png'
+              alt="Image 1"
+              height={760}
+              width={1000}
+              className="hidden xl:block"
+            />
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
+

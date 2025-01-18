@@ -38,7 +38,7 @@ export default function Projects() {
             Past Project Experience
           </motion.p>
           <motion.span className="text-gray-500 dark:text-gray-400 text-sm" variants={itemVariants}>
-            Explore the project I've worked so far
+            Explore the project I&apos;ve worked so far
           </motion.span>
         </motion.div>
 

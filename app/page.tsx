@@ -62,7 +62,7 @@ export default function Home() {
                 className="text-xl sm:text-2xl font-medium text-gray-500 dark:text-gray-400"
                 variants={itemVariants}
               >
-                Hello, I'm
+                Hello, I&apos;m
               </motion.p>
 
               <div className="flex flex-col gap-1">

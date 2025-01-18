@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -42,7 +43,7 @@ export default function MyProjects() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <img src="/projects/personal_website.png" alt="" />
+                    <Image src='/projects/personal_website.png' alt='project' height={500} width={500}></Image>
                 </motion.div>
 
                 <motion.div className="flex flex-col gap-6" variants={itemVariants}>
@@ -92,12 +93,12 @@ export default function MyProjects() {
                 whileHover={{ y: -8, transition: { duration: 0.1 } }}
             >
                 <motion.div
-                    className="bg-white dark:bg-gray-800 h-44 rounded flex items-center bg-center bg-contain bg-no-repeat overflow-hidden"
+                    className="bg-white dark:bg-gray-800 h-44 rounded flex items-center justify-center bg-center bg-contain bg-no-repeat overflow-hidden"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5 }}
                 >
-                    <img src="/projects/passify.png" alt="" />
+                    <Image src='/projects/passify.png' alt='project' height={500} width={500}></Image>
                 </motion.div>
 
                 <motion.div className="flex flex-col gap-6" variants={itemVariants}>

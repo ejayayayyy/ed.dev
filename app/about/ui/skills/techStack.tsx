@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,7 +49,8 @@ export default function TechStack() {
                     variants={itemVariants}
 
                 >
-                    <img src={tech.icon || "/placeholder.svg"} className="w-6 h-6" alt={tech.name} />
+                    <Image src={tech.icon} alt={tech.name} height={24} width={24}></Image>
+
                     <div className="flex flex-1">
                         <p className="w-full">{tech.name}</p>
                     </div>

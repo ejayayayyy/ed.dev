@@ -58,7 +58,7 @@ export default function Navbar() {
 
                 {/* Menu Container */}
                 <div
-                    className={`fixed top-0 left-0 h-full w-72 md:w-auto place-items-center bg-gray-50 dark:bg-gray-900 transform transition-transform duration-300 ease-in-out z-20 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
+                    className={`fixed top-0 left-0 h-full w-72 md:w-auto place-items-center bg-gray-50 md:bg-inherit dark:bg-gray-900 md:dark:bg-gray-inherit transform transition-transform duration-300 ease-in-out z-20 ${isMenuOpen ? "translate-x-0" : "-translate-x-full"
                         } md:relative md:flex md:items-center md:bg-transparent md:translate-x-0`}
                 >
                     <div className="container mx-auto flex flex-col gap-6 md:flex-row md:gap-8 p-6 md:p-0">

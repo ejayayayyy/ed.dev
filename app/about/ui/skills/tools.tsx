@@ -33,14 +33,14 @@ export default function Tools() {
             animate="visible"
         >
             {[
-                { name: "Git", icon: "/icons/Git.png" },
+                { name: "Git", icon: "/icons/git.png" },
                 { name: "Github", icon: "/icons/github.png" },
                 { name: "VS Code", icon: "/icons/vscode.png" },
                 { name: "MySQL", icon: "/icons/mysql.png" },
             ].map((tool, index) => (
                 <motion.div
                     key={index}
-                    className="col-span-4 md:col-span-2 p-4 rounded-lg border bg-gray-50 dark:bg-gray-800 dark:border-gray-700 flex items-center justify-center gap-6 transition-colors duration-150 hover:bg-gray-100 dark:hover:bg-gray-700"
+                    className="col-span-4 md:col-span-2 p-4 rounded-lg border bg-gray-50 dark:bg-gray-800 dark:border-gray-700 flex flex-shrink-0 truncate items-center justify-center gap-6 transition-colors duration-150 hover:bg-gray-100 dark:hover:bg-gray-700"
                     variants={itemVariants}
                     
                 >

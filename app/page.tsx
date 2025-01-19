@@ -53,7 +53,7 @@ export default function Home() {
       animate="visible"
       variants={containerVariants}
     >
-      <div className="container w-full max-w-7xl mx-auto p-6 place-content-center min-h-screen flex flex-col">
+      <div className="container w-full max-w-7xl mx-auto p-4 md:p-6 place-content-center min-h-screen flex flex-col">
         <div className="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-20 xl:gap-28">
           {/* left */}
           <motion.div className="flex flex-col gap-12 flex-shrink-0" variants={itemVariants}>

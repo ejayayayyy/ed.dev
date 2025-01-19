@@ -47,17 +47,17 @@ export default function SendMessage() {
   }
   return (
     <motion.div
-      className="w-full max-w-xl lg:max-w-2xl flex flex-col gap-8 p-8 bg-gray-50 dark:bg-gray-800 rounded-lg shadow"
+      className="w-full max-w-xl lg:max-w-2xl flex flex-col bg-gray-50 dark:bg-gray-800 rounded-lg shadow"
       variants={itemVariants}
     >
-      <motion.div className="flex flex-col gap-1 text-center" variants={itemVariants}>
+      <motion.div className="flex flex-col gap-1 text-center px-8 pt-8" variants={itemVariants}>
         <motion.p className="text-2xl font-bold text-green-500" variants={itemVariants}>Enter Your Message</motion.p>
         <motion.span className="text-gray-500 dark:text-gray-400 text-sm" variants={itemVariants}>
           Got more questions? Drop your message here
         </motion.span>
       </motion.div>
 
-      <motion.form onSubmit={handleSubmit} className="flex flex-col gap-6" variants={itemVariants}>
+      <motion.form onSubmit={handleSubmit} className="flex flex-col gap-6 p-6 md:p-8" variants={itemVariants}>
         <motion.div className="grid grid-cols-2 gap-4" variants={containerVariants}>
           <motion.div className="col-span-2 md:col-span-1 flex flex-col gap-1" variants={itemVariants}>
             <motion.label htmlFor="name" className="block dark:text-white" variants={itemVariants}>Name</motion.label>

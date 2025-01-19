@@ -28,7 +28,7 @@ const itemVariants = {
 export default function Contact() {
   return (
     <motion.div
-      className="container w-full max-w-7xl mx-auto px-6 py-12 pt-28 min-h-screen flex flex-col gap-8"
+      className="container w-full max-w-7xl mx-auto p-4 pt-24 md:px-6 md:py-12 md:pt-28 min-h-screen flex flex-col gap-8"
       initial="hidden"
       animate="visible"
       variants={containerVariants}

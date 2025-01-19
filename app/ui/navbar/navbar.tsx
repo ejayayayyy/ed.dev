@@ -21,7 +21,7 @@ export default function Navbar() {
 
     return (
         <nav className="absolute top-0 w-full z-50">
-            <div className="container mx-auto p-6 flex items-center justify-between w-full max-w-7xl">
+            <div className="container mx-auto p-4 md:p-6 flex items-center justify-between w-full max-w-7xl">
                 {/* Logo */}
                 <motion.div className="flex items-center" initial="hidden"
                     animate="visible"
